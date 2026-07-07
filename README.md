@@ -83,6 +83,33 @@ Rutas principales:
 - `/dashboard/` muestra el panel protegido.
 - `/admin/` abre el administrador de Django.
 
+## Estilos y frontend
+
+La interfaz usa una hoja de estilos central en:
+
+```text
+static/css/styles.css
+```
+
+`templates/base.html` carga el CSS con el sistema de archivos estaticos de Django:
+
+```django
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+```
+
+`config/settings.py` incluye `STATICFILES_DIRS = [BASE_DIR / "static"]` para que Django encuentre los archivos dentro de la carpeta `static/` durante el desarrollo.
+
+Los estilos actuales incluyen:
+
+- Layout centrado con contenedor `app-shell`.
+- Panel principal reutilizable con clase `panel`.
+- Variables CSS para colores, sombras, radios y estados.
+- Inputs con estados de foco accesibles.
+- Botones y enlaces tipo boton con interaccion visual.
+- Mensajes de error, aviso y estado con estilos diferenciados.
+- Ajustes responsive para pantallas pequenas.
+
 ## Pruebas
 
 ```powershell
@@ -93,4 +120,5 @@ Rutas principales:
 
 - `config/`: configuracion principal del proyecto.
 - `core/`: aplicacion base con vistas, rutas y pruebas.
+- `static/`: archivos estaticos como CSS, imagenes o JavaScript.
 - `templates/`: plantillas HTML compartidas y de autenticacion.

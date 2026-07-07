@@ -3,13 +3,17 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block content %}
+    <div class="eyebrow">Panel principal</div>
     <h1>Dashboard</h1>
 
-    <p>Bienvenido, <strong>{{ request.user.username }}</strong>.</p>
+    <p class="lead">Bienvenido, <strong>{{ request.user.username }}</strong>.</p>
 
-    <p>Si puedes ver esta página, estás autenticado correctamente.</p>
+    <div class="status-card">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>Autenticación activa y sesión protegida.</span>
+    </div>
 
-    <form method="post" action="{% url 'logout' %}">
+    <form method="post" action="{% url 'logout' %}" class="stack">
         {% csrf_token %}
         <button type="submit">Cerrar sesión</button>
     </form>
